@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 import cn.senjoeson.mylibrary.utilschanged.LogUtils;
 
 /**
- * Created by Horrarndoo on 2017/9/18.
+ * Created by senjoeson on 2017/9/18.
  * <p>
  * HttpUtils 主要用于获取UserAgent
  */

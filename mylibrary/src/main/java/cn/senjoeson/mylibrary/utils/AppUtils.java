@@ -20,7 +20,7 @@ import java.io.File;
 import cn.senjoeson.mylibrary.global.LibraryApplication;
 
 /**
- * Created by Horrarndoo on 2017/8/31.
+ * Created by senjoeson on 2017/8/31.
  * <p>
  * App工具类
  */

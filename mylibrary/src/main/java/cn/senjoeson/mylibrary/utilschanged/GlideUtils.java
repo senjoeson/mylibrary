@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide;
 import cn.senjoeson.mylibrary.R;
 
 /**
- * @author Android
+ * @author senjoeson
  * @date 2018/1/8
  */
 

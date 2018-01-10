@@ -9,8 +9,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 /**
- * Created by Horrarndoo on 2017/9/11.
- * <p>
  * Toolbar动画Manager
  */
 

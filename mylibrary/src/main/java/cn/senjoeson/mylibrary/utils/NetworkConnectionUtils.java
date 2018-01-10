@@ -19,7 +19,7 @@ import cn.senjoeson.mylibrary.utilschanged.LogUtils;
 
 
 /**
- * Created by Horrarndoo on 2017/8/31.
+ * Created by senjoeson on 2017/8/31.
  * <p>
  * Wifi连接工具类
  */

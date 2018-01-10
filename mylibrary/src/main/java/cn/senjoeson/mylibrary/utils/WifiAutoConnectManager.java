@@ -10,7 +10,7 @@ import java.util.List;
 import cn.senjoeson.mylibrary.utilschanged.LogUtils;
 
 /**
- * Created by Horrarndoo on 2017/8/10.
+ * Created by senjoeson on 2017/8/10.
  * <p>
  * 兼容Android 6.0以上手机连接wifi
  */

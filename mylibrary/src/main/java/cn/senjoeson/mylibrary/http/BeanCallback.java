@@ -13,7 +13,7 @@ import okhttp3.Call;
 import okhttp3.Response;
 
 /**
- * Created by Programming on 2017/7/27 0027.
+ * Created by senjoeson on 2017/7/27 0027.
  */
 
 public abstract class BeanCallback<T> extends Callback<T> {

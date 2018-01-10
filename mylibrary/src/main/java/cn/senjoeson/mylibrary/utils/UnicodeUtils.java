@@ -1,7 +1,7 @@
 package cn.senjoeson.mylibrary.utils;
 
 /**
- * Created by Horrarndoo on 2017/10/11.
+ * Created by senjoeson on 2017/10/11.
  * <p>
  */
 public class UnicodeUtils {

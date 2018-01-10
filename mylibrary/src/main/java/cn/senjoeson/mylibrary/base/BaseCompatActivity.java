@@ -12,11 +12,7 @@ import cn.senjoeson.mylibrary.R;
 import cn.senjoeson.mylibrary.utils.AppUtils;
 
 
-/**
- * Created by Horrarndoo on 2017/9/7.
- * <p>
- * BaseActivity
- */
+
 
 public abstract class BaseCompatActivity extends AppCompatActivity {
 

@@ -13,7 +13,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 
 /**
- * Created by Horrarndoo on 2017/8/31.
+ * Created by senjoeson on 2017/8/31.
  * <p>
  * 显示相关工具类
  */

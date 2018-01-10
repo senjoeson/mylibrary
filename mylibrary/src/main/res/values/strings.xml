@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Library</string>
+    <string name="dialog_positive">Confirm</string>
+    <string name="dialog_negative">Cancel</string>
+    <string name="loading">Loading……</string>
+    <string name="load_failed">Load failed. Please click me again</string>
+    <string name="press_again">再按一次,将退出程序</string>
+</resources>

@@ -38,7 +38,7 @@ public abstract class BaseRVAdapter<T, K extends RecyclerView.ViewHolder> extend
     protected abstract K getViewHolder(View view);
 
     /**
-     * set a layout of Res
+     * set a login of Res
      * @return
      */
     protected abstract int setResId();

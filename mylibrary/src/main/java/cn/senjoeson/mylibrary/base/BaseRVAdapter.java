@@ -15,9 +15,11 @@ import java.util.List;
 
 public abstract class BaseRVAdapter<T, K extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<K> {
     private List<T> mDatas;
+    private OnItemClickListener mOnItemClickListener;
 
     /**
      * set a list for rv
+     *
      * @param list
      */
     public void setDatas(List<T> list) {
@@ -32,24 +34,35 @@ public abstract class BaseRVAdapter<T, K extends RecyclerView.ViewHolder> extend
 
     /**
      * set a view to get viewholder of rv
+     *
      * @param view
      * @return must extends viewholder of rv
      */
     protected abstract K getViewHolder(View view);
 
     /**
-     * set a layout of Res
+     * set a login of Res
+     *
      * @return
      */
     protected abstract int setResId();
 
     @Override
-    public void onBindViewHolder(K holder, int position) {
-                onBindData(holder,mDatas.get(position));
+    public void onBindViewHolder(final K holder, int position) {
+        onBindData(holder, mDatas.get(position));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mOnItemClickListener != null) {
+                    mOnItemClickListener.onItemClick(v, holder.getAdapterPosition());
+                }
+            }
+        });
     }
 
     /**
      * bind data for rv
+     *
      * @param holder
      * @param t
      */
@@ -57,12 +70,13 @@ public abstract class BaseRVAdapter<T, K extends RecyclerView.ViewHolder> extend
 
     @Override
     public int getItemCount() {
-        return mDatas!=null?mDatas.size():0;
+        return mDatas != null ? mDatas.size() : 0;
     }
 
 
     /**
      * add a data to list
+     *
      * @param e element
      */
     public void addItem(T e) {
@@ -71,13 +85,26 @@ public abstract class BaseRVAdapter<T, K extends RecyclerView.ViewHolder> extend
     }
 
     /**
-     *   delete a data if  exist
+     * delete a data if  exist
+     *
      * @param e element
      */
     public void deleteItem(T e) {
         if (mDatas.contains(e)) {
             mDatas.remove(e);
             notifyDataSetChanged();
+        }
+    }
+
+
+    public interface OnItemClickListener {
+        void onItemClick(View v, int adapterPosition);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        if (onItemClickListener != null) {
+            this.mOnItemClickListener = onItemClickListener;
+
         }
     }
 }

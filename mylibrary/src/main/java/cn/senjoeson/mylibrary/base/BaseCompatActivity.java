@@ -45,7 +45,7 @@ public abstract class BaseCompatActivity extends AppCompatActivity {
      * <p>
      * 交由子类实现
      *
-     * @return layout Id
+     * @return login Id
      */
     protected abstract int getLayoutId();
 

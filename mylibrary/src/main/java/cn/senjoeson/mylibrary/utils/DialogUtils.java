@@ -15,21 +15,23 @@ import cn.senjoeson.mylibrary.R;
  */
 public class DialogUtils {
 
+    private static Dialog mDialog;
+
     public static Dialog createProgressDialog(Context context) {
-        return createProgressDialog(context, true);
+        return mDialog = createProgressDialog(context, true);
     }
 
     /**
      * 创建一个进度条
      *
-     * @param context
-     * @param needCancle
-     * @return
+     * @param context    上下文
+     * @param needCancel 是否可被取消
+     * @return 得到一个dialog
      */
-    public static Dialog createProgressDialog(Context context, boolean needCancle) {
+    public static Dialog createProgressDialog(Context context, boolean needCancel) {
         ProgressDialog dialog = new ProgressDialog(context);
         dialog.setMessage("Loading ...");
-        dialog.setCancelable(needCancle);
+        dialog.setCancelable(needCancel);
         dialog.setCanceledOnTouchOutside(false);
         return dialog;
     }
@@ -37,17 +39,25 @@ public class DialogUtils {
     /**
      * 普通的对话框
      *
-     * @param context
-     * @param message
-     * @param listener
-     * @return
+     * @param context  上下文
+     * @param message  弹出消息提示
+     * @param listener 确认对话框的监听
+     * @return 得到一个dialog
      */
     public static Dialog showCommonDialog(Context context, String message,
                                           DialogInterface.OnClickListener listener) {
-        return showCommonDialog(context, message, context.getString(R.string.dialog_positive),
+        return mDialog = showCommonDialog(context, message, context.getString(R.string.dialog_positive),
                 context.getString(R.string.dialog_negative), listener);
     }
 
+    /**
+     * @param context      上下文
+     * @param message      弹出消息提示
+     * @param positiveText 确认
+     * @param negativeText 取消
+     * @param listener     对话框的确认监听
+     * @return
+     */
     public static Dialog showCommonDialog(Context context, String message, String positiveText,
                                           String negativeText, DialogInterface.OnClickListener
                                                   listener) {
@@ -60,7 +70,7 @@ public class DialogUtils {
 
     public static Dialog showConfirmDialog(Context context, String message,
                                            DialogInterface.OnClickListener listener) {
-        return showConfirmDialog(context, message, context.getString(R.string.dialog_positive),
+        return mDialog = showConfirmDialog(context, message, context.getString(R.string.dialog_positive),
                 listener);
     }
 
@@ -70,5 +80,14 @@ public class DialogUtils {
                 .setMessage(message)
                 .setPositiveButton(positiveText, listener)
                 .show();
+    }
+
+    /**
+     * 关闭显示的弹框
+     */
+    public static void dismiss() {
+        if (mDialog != null && mDialog.isShowing()) {
+            mDialog.dismiss();
+        }
     }
 }

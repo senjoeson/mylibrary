@@ -57,11 +57,11 @@ public abstract class BeanCallback<T> extends Callback<T> {
     }
 
     @Override
-    public void onResponse(T response, int id) {
-        onSuccess(response);
+    public void onResponse(T t, int id) {
+        onSuccess(t);
     }
 
 
-    public abstract void onSuccess(T respnose);
+    public abstract void onSuccess(T t);
 }
 

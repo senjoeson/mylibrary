@@ -8,16 +8,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.inputmethod.InputMethodManager;
 
+import butterknife.ButterKnife;
 import cn.senjoeson.mylibrary.R;
 import cn.senjoeson.mylibrary.utils.AppUtils;
 
 
-
-
-public abstract class BaseCompatActivity extends AppCompatActivity {
+public abstract class BaseCompatActivity<V, T extends BasePresenter<V>> extends AppCompatActivity {
 
     protected Context mContext;//全局上下文对象
     protected boolean isTransAnim;
+    public T presenter;
 
     static {
         //5.0以下兼容vector
@@ -27,18 +27,27 @@ public abstract class BaseCompatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(getLayoutId());
+        ButterKnife.bind(this);
         init(savedInstanceState);
     }
 
 
     private void init(Bundle savedInstanceState) {
-        setContentView(getLayoutId());
         mContext = AppUtils.getContext();
+        presenter = getPresenter();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        initView(savedInstanceState);
+        initView();
         initData();
         initListener();
     }
+
+    /**
+     * 拿到对应P层的引用
+     *
+     * @return
+     */
+    protected abstract T getPresenter();
 
     /**
      * 获取当前layouty的布局ID,用于设置当前布局
@@ -54,9 +63,9 @@ public abstract class BaseCompatActivity extends AppCompatActivity {
      * <p>
      * 子类实现 控件绑定、视图初始化等内容
      *
-     * @param savedInstanceState savedInstanceState
+     * //param savedInstanceState savedInstanceState
      */
-    protected abstract void initView(Bundle savedInstanceState);
+    protected abstract void initView();
 
     protected abstract void initData();
 
@@ -176,5 +185,22 @@ public abstract class BaseCompatActivity extends AppCompatActivity {
      */
     protected void setIsTransAnim(boolean b) {
         isTransAnim = b;
+    }
+
+
+
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.attach((V) this);
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        presenter.dettach();
+        super.onDestroy();
     }
 }

@@ -1,0 +1,26 @@
+ext {
+    version = [
+            compileSdkVersion: 26,
+            buildToolsVersion: '26.0.2',
+            minSdkVersion    : 19,
+            targetSdkVersion : 26,
+            versionCode      : 1,
+            versionName      : "1.0",
+            supportversion   : "26.1.0"
+
+    ]
+
+
+
+    libraryArrays = [
+            okhttputils     : 'com.zhy:okhttputils:2.6.2',
+            flowlayout      : 'com.hyman:flowlayout-lib:1.1.2',
+            butterknife     : 'com.jakewharton:butterknife:8.8.1',
+            gson            : 'com.google.code.gson:gson:2.8.2',
+            glide           : 'com.github.bumptech.glide:glide:3.8.0',
+            butterknifetools: 'com.jakewharton:butterknife-compiler:8.8.1'
+            // recyclerview: 'com.android.support:recyclerview-v7:'+version.supportversion,
+
+
+    ]
+}
